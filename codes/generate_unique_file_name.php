@@ -1,0 +1,1 @@
+$nome_imagem = md5(uniqid(time())) . '.' . $ext[1];
