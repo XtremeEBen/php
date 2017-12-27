@@ -1,19 +1,12 @@
-<?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/cloud/lib/_sys/c/_main.php");
-
-    gc::botao_history_back();
-	gc::get_html_head("dev_php", "write_file_php", gc::get_ip());
-?>
-
 class writeMsg
 {
 	static function logMsg ( $msg, $level = 'info', $file = 'main.log' )
 	{
-	    // variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
+		// variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
 		$levelStr = '';
 
-	    // verifica o nível do log
-	    switch ( $level )
+		// verifica o nível do log
+		switch ( $level )
 		{
 			case 'info':
 			    // nível de informação
@@ -32,7 +25,7 @@ class writeMsg
 		}
 
    		// data atual
-	    $date = date ( 'Y-m-d H:i:s' );
+		$date = date ( 'Y-m-d H:i:s' );
 
 		// formata a mensagem do log
 		// 1o: data atual
@@ -43,10 +36,8 @@ class writeMsg
 
 		// escreve o log no arquivo
 		// é necessário usar FILE_APPEND para que a mensagem seja escrita no final do arquivo, preservando o conteúdo antigo do arquivo
-	    file_put_contents( $file, $msg, FILE_APPEND );
+		file_put_contents( $file, $msg, FILE_APPEND );
 	}
 }
 
 teste::logMsg("opa");
-
-<?php gc::get_footer(); ?>
