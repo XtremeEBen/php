@@ -1,16 +1,17 @@
-<form action='upload.php' method='post' enctype='multipart/form-data'>
+<form action='' method='POST' enctype='multipart/form-data'>
     Select image to upload:
     <input type='file' name='file' id='file'>
     <input type='submit' id='u_button' name='u_button' value='Upload the File'>
 </form>
 
 <?php
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
 	$file_result=';
 
 	if($_FILES['file']['error']>0)
 	{
-		$file_result .= 'No finle uploaded or invalid file';
+		$file_result .= 'No file uploaded or invalid file';
 		$file_result .= 'Error Code: ' . $_FILES['file']['error'] . '< br >';
 	}
 	else
@@ -26,6 +27,6 @@
 
 			$file_result .='file uploaded successfully';
 	}
-
+}
 
 ?>
